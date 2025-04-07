@@ -1,12 +1,14 @@
 name: WIF
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 permissions:
   contents: read
   pages: write
   id-token: write
 jobs:
-  infra-build:
+  Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
