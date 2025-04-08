@@ -19,5 +19,14 @@ jobs:
         project_id: 'bilvantisaimlproject'
         workload_identity_provider: 'projects/286895835019/locations/global/workloadIdentityPools/github-wif/providers/test-repo'
     
-    - name: Get list of buckets
-      run: gcloud storage buckets list | grep "name"
+    - name: Terraform Init
+      uses: hashicorp/setup-terraform@v2
+      run: cd Terraform && terraform init
+
+    - name: Terraform Plan
+      uses: hashicorp/setup-terraform@v2
+      run: cd Terraform && terraform plan
+
+    - name: Terraform Apply
+      uses: hashicorp/setup-terraform@v2
+      run: cd Terraform && terraform apply -auto-approve
