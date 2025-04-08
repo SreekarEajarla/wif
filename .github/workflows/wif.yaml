@@ -19,14 +19,14 @@ jobs:
         project_id: 'bilvantisaimlproject'
         workload_identity_provider: 'projects/286895835019/locations/global/workloadIdentityPools/github-wif/providers/test-repo'
     
-    - name: Terraform Init
+    - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
+
+    - name: Terraform Init
       run: cd Terraform && terraform init
 
     - name: Terraform Plan
-      uses: hashicorp/setup-terraform@v2
       run: cd Terraform && terraform plan
 
     - name: Terraform Apply
-      uses: hashicorp/setup-terraform@v2
       run: cd Terraform && terraform apply -auto-approve
