@@ -1,5 +1,5 @@
 variable "project_id" {
   description = "The GCP project ID"
   type        = string
-  key         = "bilvantisaimlproject"
+  default     = "bilvantisaimlproject"
 }
